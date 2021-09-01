@@ -1,0 +1,8 @@
+package char02;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppContext {
+	@bean
+}

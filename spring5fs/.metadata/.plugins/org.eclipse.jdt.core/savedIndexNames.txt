@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+E:\GitStorage\springForBeginners\spring5fs\.metadata\.plugins\org.eclipse.jdt.core
+1885460537.index
+2567077132.index
+124184751.index

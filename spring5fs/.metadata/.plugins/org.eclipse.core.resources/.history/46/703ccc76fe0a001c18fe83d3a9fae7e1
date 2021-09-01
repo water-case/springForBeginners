@@ -1,0 +1,51 @@
+package main;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import assembler.Assembler;
+
+public class MainForAssembler {
+	
+	private static Assembler assembler = new Assembler();
+
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		while(true) {
+			System.out.println("명령어를 입력하세요");
+			String command = reader.readLine();
+			if(command.equalsIgnoreCase("exit")) {
+				System.out.println("종료합니다");
+				break;
+			}
+			if(command.startsWith("new ")) {
+				processNewCommand(command.split(" "));
+				continue;
+			} else if (command.startsWith("change ")) {
+				processChangeCommand(command.split(" "));
+				continue;
+			}
+			printHelp();
+		}
+		
+	}
+
+	private static void processNewCommand(String[] split) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void processChangeCommand(String[] split) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void printHelp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

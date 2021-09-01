@@ -1,0 +1,9 @@
+package spring;
+
+public class MemberDao {
+	
+	private static long nextId = 0;
+	
+	private Map<String, Member> map = new HashMap<>();
+	
+}

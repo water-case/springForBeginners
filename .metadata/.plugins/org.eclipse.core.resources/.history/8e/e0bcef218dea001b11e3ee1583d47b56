@@ -1,0 +1,9 @@
+package char02;
+
+public class Greeter {
+	private String format;
+	
+	public String greet(String guest) {
+		return String.format(format, guest);
+	}
+}

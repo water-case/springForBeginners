@@ -1,0 +1,16 @@
+package spring;
+
+public class MemberListPrinter {
+	
+	private MemberDao memberDao;
+	private MemberPrinter printer;
+	
+	public MemberListPrinter(MemberDao memberDao, MemberPrinter printer) {
+		super();
+		this.memberDao = memberDao;
+		this.printer = printer;
+	}
+	
+	
+	
+}

@@ -1,0 +1,11 @@
+package spring;
+
+public class MemberRegisterService {
+	
+	private MemberDao memberDao;
+	
+	public MemberRegisterService() {
+		// TODO Auto-generated constructor stub
+	}
+	
+}

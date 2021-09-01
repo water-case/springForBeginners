@@ -1,0 +1,6 @@
+package char02;
+
+@Configuration
+public class AppContext {
+	
+}
