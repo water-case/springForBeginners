@@ -2,6 +2,11 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="E:\GitStorage\springForBeginners\spring5fs\sp5-chap07"/>
+			<item value="E:\GitStorage\springForBeginners\spring5fs\sp5-chap06"/>
+			<item value="E:\GitStorage\springForBeginners\spring5fs\sp5-chap05"/>
+			<item value="E:\GitStorage\springForBeginners\spring5fs\sp5-chap04"/>
+			<item value="E:\GitStorage\springForBeginners\spring5fs\sp5-chap03"/>
 			<item value="E:\GitStorage\springForBeginners\spring5fs\sp5-chap02"/>
 		</list>
 		<list key="projectNameTemplate">

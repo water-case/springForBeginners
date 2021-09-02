@@ -5,7 +5,78 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-09-01T08:20:00Z</updated>
+  <updated>2021-09-01T16:00:00Z</updated>
+  <entry>
+    <title>Monitor Spring Boot applications end-to-end using Dynatrace in Azure Spring Cloud!</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/09/01/monitor-spring-boot-applications-end-to-end-using-dynatrace-in-azure-spring-cloud" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-09-01:4530</id>
+    <updated>2021-09-01T16:00:00Z</updated>
+    <content type="html">&lt;p&gt;Today, we are excited to announce the integration of the &lt;strong&gt;Dynatrace Software Intelligence Platform in Azure Spring Cloud&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Over the past 18 months, we worked with many enterprise customers to learn about the scenarios they face. Many of these customers have thousands of Spring Boot applications running in on-premises data centers. As they migrate these applications to the cloud, they need to instrument them for application performance monitoring (APM) using solutions their developers are familiar with and have been using for years. In addition, they must ensure continuity for desktop and mobile applications that are already pre-instrumented for end-to-end monitoring using agents like Dynatrace OneAgent, which automatically discovers and maps all applications, microservices, and infrastructure as well as any dependencies in dynamic hybrid, multi-cloud environments. With the integration of Dynatrace OneAgent in Azure Spring Cloud, you can continue your journey and easily instrument your Spring Boot applications with Dynatrace.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Continue your Dynatrace journey&lt;/strong&gt;. Most organizations that deploy Spring Boot applications today share a similar goal: maximize the benefits of running Spring Boot applications at virtually any scale, using automation and APM. While Azure Spring Cloud excels at abstracting away much of the toil associated with managing containerized workloads, the challenge of monitoring and maintaining the performance and health of these applications, or of troubleshooting issues when they occur, can be daunting?especially as organizations deploy these applications at massive scale. To help you succeed and continue your Dynatrace journey, we integrated and upgraded your ability to instrument, monitor and deliver observability using Dynatrace OneAgent across your Azure Spring Cloud instances. That begins with setting up instrumentation quickly and easily. Then you can analyze the performance and health of your applications, JVMs, transactions, and more.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;¡°For Liantis, true hybrid monitoring across both our on-premises and cloud-based Spring Boot microservices is key, but we also require simple and straightforward implementation - which is in line with the true Azure Spring Cloud philosophy of abstracting complexity. Doing so allows Liantis to spend more time on developing innovative applications, rather than building and operating infrastructure, which enables us to deliver true value for our customers and employees. Building on our in-house expertise with both Spring and Dynatrace technology, combined with our previous investments, the Dynatrace integration with Azure Spring Cloud was the obvious choice for Liantis.¡± &amp;ndash; Nicolas Van Kerschaver, CIO, Liantis&lt;/p&gt;
+  &lt;p&gt;¡°Being able to scale is critical for today¡¯s digital business, as organizations have made the shift to cloud-native workloads and microservices. While cloud-native technologies and microservices have tremendous advantages, dynamic environments bring complexity that makes it difficult to understand the relationships and dependencies across an organization¡¯s cloud ecosystem. Dynatrace¡¯s strategic partnership with Microsoft allows us to extend the impact of our automatic and intelligent observability even further to accelerate digital transformation. Through the Dynatrace integration with Azure Spring Cloud, we are enabling full visibility into application data for Spring Boot applications, which means more time innovating and a better product for end-users.¡± ? Eric Horsman, Global Director of Strategic Alliances, Dynatrace&lt;/p&gt;
+  &lt;p&gt;¡°At Microsoft, we are committed to helping our customers modernize their applications and innovate faster than ever before. By integrating a software intelligence solution like Dynatrace with Azure Spring Cloud, we can enable our customers with easy implementation of end-to-end observability, including automatic and continuous root-cause analysis, for their Spring Boot applications.¡± &amp;ndash; Julia Liuson, Corporate Vice President, Developer Division, Microsoft&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/PF0_SxuiZ2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;strong&gt;Instrument your Spring Boot applications.&lt;/strong&gt; Run a &amp;ldquo;provisioning&amp;rdquo; automation pipeline for a complete hands-off experience to instrument and monitor any new applications that you create and deploy ? using Terraform or ARM Template. Or you can run it on-demand using the Azure CLI for greater flexibility and control.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;az spring-cloud app update --name customers-service \&#xD;
+      --env DT_TENANT=&amp;lt;your-tenant&amp;gt; DT_TENANTTOKEN=&amp;lt;your-tenant-token&amp;gt; \&#xD;
+      DT_CONNECTION_POINT=&amp;lt;your-connection-point&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Automatic discovery and mapping of applications and their dependencies.&lt;/strong&gt; To maintain real-time awareness in dynamic environments, Dynatrace automatically discovers and maps application components (including application servers, frameworks and microservices), databases, messaging and eventing systems, and their relationships. In the view shown below, the Dynatrace Portal shows all the Spring Boot applications running in a production workload.&lt;/p&gt;
+&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/1-SpringCloudDynatraceAutomaticDiscovery.png"/&gt;
+&lt;p&gt;Screenshot 1 - shows all the Spring Boot applications running in a production workload&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;End-to-end observability of Spring Boot applications¡¯ complete HTTP/S transactional behavior to understand the effect on business outcomes and user experiences.&lt;/strong&gt; In the example view below, Dynatrace provides developers with all the transaction traces implemented in code without any code change to applications.&lt;/p&gt;
+&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/2-SpringCloudDynatraceDatabaseBacktrace.png"/&gt;
+&lt;p&gt;Screenshot 2 ? shows transaction traces implemented in code without any code change to applications&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Endpoint monitoring, API monitoring, DB calls monitoring, end-user experience monitoring.&lt;/strong&gt; Dynatrace captures all the database queries initiated by your Spring Boot applications, including Azure database services. In the example view below, Dynatrace Portal shows all the active REST API operations within a production workload.&lt;/p&gt;
+&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/3-SpringCloudDynatraceAPICalls2.png"/&gt;
+&lt;p&gt;Screenshot 3 ? shows all the active REST API operations within a production workload&lt;/p&gt;
+&lt;p&gt;In the example view below, the Dynatrace Portal shows all the database queries initiated by a production workload.&lt;/p&gt;
+&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/4-SpringCloudDynatraceDatabaseContribution.png"/&gt;
+&lt;p&gt;Screenshot 4 ? shows all the database queries initiated by a production workload&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Root-cause and impact analysis&lt;/strong&gt; of application performance problems and business outcomes for faster, more reliable incident resolution. Dynatrace provides deep-code level visibility with end-to-end traces and the integration provides AI-assisted problem detection and automatic root-cause analysis allowing you to stay on top of your deployments and distinguish between healthy and unhealthy applications.&lt;/p&gt;
+&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/5-SpringCloudDynatraceHotspots.png"/&gt;
+&lt;p&gt;Screenshot 5 ? shows results from stack trace analysis&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detect anomalies&lt;/strong&gt; in your Spring Boot application instances. Dynatrace passes the collected data through an AI engine for automated root cause analysis, code level hotspot analysis, top database queries and exception analysis. In the example screenshot below, Dynatrace automatically identifies code modules that are CPU intensive so that you do not have to dig through the data.&lt;/p&gt;
+&lt;img src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/6-SpringCloudDynatraceCPUAnalysis.png"/&gt;
+&lt;p&gt;Screenshot 6 - code modules that are CPU intensive so that you do not have to dig through the data&lt;/p&gt;
+&lt;p&gt;You can find all the top database queries initiated, how expensive these queries are, and how many times these queries are called by applications. In the example screenshot below, Dynatrace shows top database queries initiated by a production workload.&lt;/p&gt;
+&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/7-SpringCloudDynatraceTopDatabase.png"/&gt;
+&lt;p&gt;Screenshot 7 ? shows top database queries initiated by a production workload&lt;/p&gt;
+&lt;p&gt;All application code level exceptions are logged along with many details into the stack traces of where the exception occurred. In the example screenshot below, Dynatrace portal shows the top exceptions thrown by a production workload.&lt;/p&gt;
+&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/8-SpringCloudDynatraceExceptionAnalysis.png"/&gt;
+&lt;p&gt;Screenshot 8 ? shows the top exceptions thrown by a production workload&lt;/p&gt;
+&lt;p&gt;The Dynatrace Software Intelligence Platform automatically baselines all the performance metrics of Spring Boot applications. When the response times of an application increase beyond the auto detected baseline, the platform creates an alert with information like how much response times have breached from baselines. In the example screenshot below, Dynatrace shows response time degradation for a few services in a production workload.&lt;/p&gt;
+&lt;img   width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/9-SpringCloudDynatraceResponseTimeProblem1-reds.jpg"/&gt;
+&lt;p&gt;Screenshot 9 ? shows response time degradation for a few services in a production workload&lt;/p&gt;
+&lt;p&gt;Dynatrace gives you insights on what caused these increases in response time, particularly the time taken to make a connection to a database service. In the example below, the Dynatrace portal calls out the time taken to make connections to a database.&lt;/p&gt;
+&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/10-SpringCloudDynatraceResponseTimeProblem2.png"/&gt;
+&lt;p&gt;Screenshot 10 ? shows time taken to make connections to a database&lt;/p&gt;
+&lt;p&gt;Dynatrace automatically detects all the failures. In the example below, Dynatrace signals an increase in failure rates to reach an external network.&lt;/p&gt;
+&lt;img width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/11-SpringCloudDynatraceFailureRate_pub1.png"/&gt;
+&lt;p&gt;Screenshot 11 ? signals an increase in failure rates to reach an external network&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Focus on delivering value to your end-users.&lt;/strong&gt; Once instrumented, as you scale out to multiple Spring Boot application instances, any new application instances are automatically monitored for you. Dynatrace enables application developers to observe Spring Boot applications end-to-end. You spend less time managing the agent installation and maintenance and more energy on identifying and resolving incidents faster. Azure Spring Cloud service is on-point for periodically updating the Dynatrace OneAgent.&lt;/p&gt;&lt;h2&gt;&lt;a href="#build-your-solutions-and-monitor-them-today" class="anchor" name="build-your-solutions-and-monitor-them-today"&gt;&lt;/a&gt;Build your solutions and monitor them today!&lt;/h2&gt;
+&lt;p&gt;Azure Spring Cloud is jointly built, operated, and supported by Microsoft and VMware. It is a fully managed service for Spring Boot applications that abstracts away the complexity of infrastructure and Spring Cloud middleware management, so you can focus on building your business logic and let Azure take care of dynamic scaling, patches, security, compliance, and high availability. With a few steps, you can provision Azure Spring Cloud, create applications, deploy, and scale Spring Boot applications and start monitoring in minutes. We will continue to bring more developer-friendly and enterprise-ready features to Azure Spring Cloud. &lt;/p&gt;
+&lt;p&gt;We would love to hear how you are building impactful solutions using Azure Spring Cloud. Start monitoring your Spring Boot applications with Dynatrace.&lt;/p&gt;&lt;h2&gt;&lt;a href="#resources" class="anchor" name="resources"&gt;&lt;/a&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Learn using an MS Learn module or self-paced workshop on GitHub&lt;/li&gt;
+  &lt;li&gt;Learn more about implementing solutions on Azure Spring Cloud&lt;/li&gt;
+  &lt;li&gt;See related document published by Dynatrace&lt;/li&gt;
+  &lt;li&gt;Deploy a distributed version of Spring Petclinic built with Spring Cloud&lt;/li&gt;
+  &lt;li&gt;Deploy Spring Boot applications by leveraging enterprise best practices ? Azure Spring Cloud Reference Architecture&lt;/li&gt;
+  &lt;li&gt;Migrate your Spring Boot, Spring Cloud and Tomcat applications to Azure Spring Cloud&lt;/li&gt;
+  &lt;li&gt;Wire Spring applications to interact with Azure services&lt;/li&gt;
+  &lt;li&gt;For feedback and questions, please e-mail us.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring GraphQL 1.0.0-M2 available now</title>
     <link rel="alternate" href="https://spring.io/blog/2021/09/01/spring-graphql-1-0-0-m2-available-now" />
@@ -498,29 +569,6 @@ class ServiceConfiguration {&#xD;
     <updated>2021-08-04T07:00:00Z</updated>
     <content type="html">&lt;p&gt;Hi, Spring fans! Redis is the swiss-army knife of databases and it integrates into Spring-based workloads with ease. In this installment, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; and special guest star &lt;a href="https://twitter.com/bsbodden"&gt;Brian Sam-Bodden (@bsbodden)&lt;/a&gt; look at just a few of the bootiful possibilities for Redis and Spring Boot.&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Yq8Cc7eOgF8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - August 3rd, 2021</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/08/03/this-week-in-spring-august-3rd-2021" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-08-03:4510</id>
-    <updated>2021-08-03T07:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! Can you believe it&amp;rsquo;s already August, 2021! We&amp;rsquo;re nearly to 2022! And I am, for better or for worse, back from vacation! I am so happy to be back, but I do miss the sunkissed beaches of Hawai&amp;rsquo;i. Sigh. Anyway, let&amp;rsquo;s get into it! We&amp;rsquo;ve got a ton of things to get into, so without further ado&amp;hellip;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/07/29/a-bootiful-podcast-microsoft-s-asir-v-selvasingh-on-spring-boot-spring-cloud-microsoft-azure-and-azure-spring-cloud"&gt;A Bootiful Podcast: Microsoft&amp;rsquo;s Asir V. Selvasingh on Spring Boot, Spring Cloud, Microsoft Azure, and Azure Spring Cloud&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/07/29/roorkee-robots-releases-and-racing-the-kubernetes-1.21-release-interview/"&gt;Blog: Roorkee robots, releases and racing: the Kubernetes 1.21 release interview&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://blogs.vmware.com/vmworld/2021/07/join-pure-storage-at-vmworld-2021.html"&gt;Join Pure Storage at VMworld 2021&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://github.com/cassandre-tech/cassandre-trading-bot"&gt;Cassandre is an open-source framework that makes it easy to create your crypto trading bot in Java. Our Spring boot starter takes care of exchange connections, accounts, orders, trades, and positions so you can focus &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://github.com/spring-projects/spring-security-samples/tree/main/servlet/spring-boot/java/oauth2/authorization-server"&gt;Check out this Spring Security Authorization Server example&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Join Confluent Developer advocate Viktor Gamov for this look at &lt;a href="https://www.youtube.com/watch?v=iIjeIhavxrw"&gt;Spring and Apache Kafka 101&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Here&amp;rsquo;s another interesting look &lt;a href="https://josdem.io/techtalk/spring/spring_swagger_boot_configuration/"&gt;at using Spring Boot with Swagger&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Did y&amp;rsquo;all see &lt;a href="https://www.youtube.com/watch?v=pQwMws6we6I"&gt;the latest installment of the SpringOne Tour&lt;/a&gt;. This was my favorite installment yet!&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://blogs.vmware.com/vmworld/2021/07/flight-status-oracle-cloud-vmware-solution.html"&gt;Flight Status: Oracle Cloud VMware Solution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
