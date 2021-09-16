@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -73,5 +74,17 @@ public class MemberDao {
 				"update MEMBER set NAME = ?, PASSWORD = ? where EMAIL = ?",
 				member.getName(), member.getPassword(), member.getEmail());
 	}
+	
+	public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to) {
+		List<Member> results = jdbcTemplate.query("select * from MEMBER where REGDATE between ? and ? order by REGDATE desc", new RowMapper<Member>() {
 
+			@Override
+			public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Member member = new Member(rs.getString("EMAIL"), rs.getString("PASSWORD"), rs.getString("NAME"), rs.getTimestamp("REGDATRE").toLocalDateTime());
+				member.setId(rs.getLong("ID"));
+				return member;
+			}
+		}, from, to);
+		return results;
+	}
 }
